@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://kisoavjc2qqm"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b73j6i0nso4iv" path="res://Materials/Medium Friction Physics Material.tres" id="1_y0vdj"]
+[ext_resource type="Texture2D" uid="uid://c2iq3immwry3t" path="res://Materials/Medium/lined-grip-foam1_albedo.png" id="2_hmudg"]
+[ext_resource type="Texture2D" uid="uid://boje8e8162no5" path="res://Materials/Medium/lined-grip-foam-ao.png" id="3_s7d6f"]
+[ext_resource type="Texture2D" uid="uid://bh8f7y3p7faks" path="res://Materials/Medium/lined-grip-foam1_height.png" id="4_eoo5g"]
+[ext_resource type="Texture2D" uid="uid://bvjmt0n53x78l" path="res://Materials/Medium/lined-grip-foam1_normal-ogl.png" id="5_jcnfs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixknr"]
+albedo_texture = ExtResource("2_hmudg")
+normal_enabled = true
+normal_scale = -5.38
+normal_texture = ExtResource("5_jcnfs")
+ao_enabled = true
+ao_texture = ExtResource("3_s7d6f")
+heightmap_enabled = true
+heightmap_scale = -6.172
+heightmap_texture = ExtResource("4_eoo5g")
+
+[sub_resource type="BoxMesh" id="BoxMesh_egg54"]
+material = SubResource("StandardMaterial3D_ixknr")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[node name="Mid Friction3" type="StaticBody3D" unique_id=1995651835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.297686)
+physics_material_override = ExtResource("1_y0vdj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=644159475]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1876362277]
+mesh = SubResource("BoxMesh_egg54")

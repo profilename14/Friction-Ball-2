@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dayhx6iu50tou"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b8feqq3a8uec" path="res://Materials/Low Friction Physics Material.tres" id="1_4dw0v"]
+[ext_resource type="Texture2D" uid="uid://dblf0476w7om2" path="res://Materials/Titanium-Scuffed_basecolor.png" id="2_528pf"]
+[ext_resource type="Texture2D" uid="uid://bsm3cc3ige433" path="res://Materials/Titanium-Scuffed_normal.png" id="3_lmjoo"]
+[ext_resource type="Script" path="res://area_3d.gd" id="4_ahrry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
+albedo_texture = ExtResource("2_528pf")
+metallic = 1.0
+metallic_specular = 0.29
+metallic_texture = ExtResource("2_528pf")
+normal_enabled = true
+normal_texture = ExtResource("3_lmjoo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f3qia"]
+material = SubResource("StandardMaterial3D_ivycn")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw7q2"]
+size = Vector3(8.6, 1, 8.6)
+
+[node name="Low Friction" type="StaticBody3D" unique_id=1510412800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.619251, -4.7683716e-07, -3.5258274)
+physics_material_override = ExtResource("1_4dw0v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1293897530]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1631371418]
+mesh = SubResource("BoxMesh_f3qia")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=954495199]
+script = ExtResource("4_ahrry")
+accelMultiplier = 16.0
+velMultiplier = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=792752872]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
