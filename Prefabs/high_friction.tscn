@@ -27,22 +27,22 @@ size = Vector3(8.580048, 0.46533203, 8.499817)
 [sub_resource type="BoxShape3D" id="BoxShape3D_iw7q2"]
 size = Vector3(8.6, 1, 8.6)
 
-[node name="High Friction" type="StaticBody3D" unique_id=682620097]
+[node name="High Friction" type="StaticBody3D" unique_id=1084831201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7812, -4.7683716e-07, -4.5401173)
 physics_material_override = ExtResource("1_htyec")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558008829]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1680158471]
 shape = SubResource("BoxShape3D_myinc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1133443927]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=839425551]
 mesh = SubResource("BoxMesh_q1uvj")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1125829064]
+[node name="Area3D" type="Area3D" parent="." unique_id=2060705727]
 script = ExtResource("6_jq8uu")
-accelMultiplier = 16.0
-velMultiplier = 0.2
+accelMultiplier = 2.0
+velMultiplier = 5.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1723035808]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=35208840]
 shape = SubResource("BoxShape3D_iw7q2")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
