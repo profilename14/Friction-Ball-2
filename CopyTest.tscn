@@ -623,7 +623,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="Low Friction9" type="StaticBody3D" parent="." unique_id=305551068]
-transform = Transform3D(1.8793852, -0.34202015, 0, 0.6840403, 0.9396926, 0, 0, 0, 1, 116.278076, 12.455853, -105.525826)
+transform = Transform3D(1.409539, -0.34202015, 0, 0.51303023, 0.9396926, 0, 0, 0, 1, 116.278076, 12.455853, -105.525826)
 physics_material_override = ExtResource("7_4mxro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction9" unique_id=1452863226]
