@@ -169,6 +169,7 @@ physics_material_override = SubResource("PhysicsMaterial_myinc")
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_myinc")
+jumpPower = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1528176696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050828457, 0, 0)
