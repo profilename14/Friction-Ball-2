@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://kisoavjc2qqm"]
+[gd_scene format=3 uid="uid://8pjt5hdsyb3x"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://b73j6i0nso4iv" path="res://Materials/Medium Friction Physics Material.tres" id="1_y0vdj"]
 [ext_resource type="Texture2D" uid="uid://c2iq3immwry3t" path="res://Materials/Medium/lined-grip-foam1_albedo.png" id="2_hmudg"]
