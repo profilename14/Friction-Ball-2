@@ -11,6 +11,7 @@ extends RigidBody3D
 @export var audio: AudioManager
 
 var isMoving = false
+var inAir = false
 
 var startPos
 
@@ -20,6 +21,12 @@ func _ready() -> void:
 func _physics_process(delta):
 	if camera == null:
 		return
+		
+	if !on_floor:
+		inAir = true
+	if inAir and on_floor:
+		inAir = false
+		audio.play_sfx("hit")
 		
 	var direction = Vector2.ZERO
 	#print(accelMultiplier)
@@ -67,6 +74,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if (on_floor and isMoving):
 		audio.play_sfx("roll")
 	else:
+
 		audio.stop_sfx("roll")
 		
 func set_surface_modifiers(accel, speed):
