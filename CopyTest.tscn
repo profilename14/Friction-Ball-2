@@ -236,6 +236,7 @@ mesh = SubResource("SphereMesh_rdfvj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471404577]
 transform = Transform3D(1, 0, 0, 0, -2.682209e-07, 1, 0, -1, -2.682209e-07, 0, 20, 0)
+light_color = Color(1, 0.82685715, 0.7303132, 1)
 
 [node name="HalfPipe(LowFriction)" type="Node3D" parent="." unique_id=42191806]
 transform = Transform3D(0.05, 0, 0, 0, 0.075, 0, 0, 0, 0.05, 23.53822, -1.0038373, -4.915819)
@@ -388,7 +389,7 @@ velMultiplier = 3.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="HalfPipe(LowFriction)2" type="Node3D" parent="." unique_id=2079807895]
-transform = Transform3D(-2.1855695e-09, 0, -0.05, 0, 0.075, 0, 0.05, 0, -2.1855695e-09, 35.53822, -5.0038376, -47.915817)
+transform = Transform3D(-2.1855695e-09, 0, -0.05, 0, 0.075, 0, 0.05, 0, -2.1855695e-09, 35.53822, -3.3763375, -47.915817)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="HalfPipe(LowFriction)2" unique_id=201674127]
 physics_material_override = ExtResource("7_4mxro")
@@ -559,14 +560,14 @@ mesh = SubResource("BoxMesh_f3qia")
 
 [node name="Area3D" type="Area3D" parent="Low Friction2" unique_id=1742442183]
 script = ExtResource("6_5qtjk")
-accelMultiplier = 16.0
-velMultiplier = 3.0
+accelMultiplier = 100.0
+velMultiplier = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction2/Area3D" unique_id=1344542934]
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction7" type="StaticBody3D" parent="." unique_id=23649483]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.0188, 13.7, -106.040115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.3188, 13.7, -106.040115)
 physics_material_override = ExtResource("10_14xas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction7" unique_id=1376390837]
@@ -623,7 +624,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="Low Friction9" type="StaticBody3D" parent="." unique_id=305551068]
-transform = Transform3D(1.409539, -0.34202015, 0, 0.51303023, 0.9396926, 0, 0, 0, 1, 116.278076, 12.455853, -105.525826)
+transform = Transform3D(1.1746157, -0.3420201, 0, 0.42752513, 0.9396926, 0, 0, 0, 1, 117.08273, 12.831906, -105.525826)
 physics_material_override = ExtResource("7_4mxro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction9" unique_id=1452863226]
@@ -634,14 +635,14 @@ mesh = SubResource("BoxMesh_f3qia")
 
 [node name="Area3D" type="Area3D" parent="Low Friction9" unique_id=426419241]
 script = ExtResource("6_5qtjk")
-accelMultiplier = 16.0
-velMultiplier = 3.0
+accelMultiplier = 10000.0
+velMultiplier = 10000.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction9/Area3D" unique_id=1111174269]
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="HalfPipe(LowFriction)5" type="Node3D" parent="." unique_id=272319585]
-transform = Transform3D(-2.1855695e-09, 0, -0.05, 0, 0.075, 0, 0.05, 0, -2.1855695e-09, 45.66822, -5.0038376, -47.915817)
+transform = Transform3D(-2.1855695e-09, 0, -0.05, 0, 0.075, 0, 0.05, 0, -2.1855695e-09, 45.688217, -3.3688374, -47.915817)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="HalfPipe(LowFriction)5" unique_id=603592894]
 physics_material_override = ExtResource("7_4mxro")
