@@ -121,8 +121,8 @@ mesh = SubResource("BoxMesh_q1uvj")
 
 [node name="Area3D" type="Area3D" parent="High Friction" unique_id=436382150]
 script = ExtResource("9_rdfvj")
-accelMultiplier = 0.5
-velMultiplier = 0.5
+accelMultiplier = 3.0
+velMultiplier = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction/Area3D" unique_id=1659454357]
 shape = SubResource("BoxShape3D_iw7q2")
