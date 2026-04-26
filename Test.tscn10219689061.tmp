@@ -76,6 +76,56 @@ material = ExtResource("16_s2xbw")
 
 [node name="Node3D" type="Node3D" unique_id=1380261798]
 
+[node name="Mid Friction6" type="StaticBody3D" parent="." unique_id=1306724460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.244213)
+physics_material_override = ExtResource("1_ivycn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction6" unique_id=1872515540]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction6" unique_id=442989663]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction5" type="StaticBody3D" parent="." unique_id=1235074261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.59537)
+physics_material_override = ExtResource("1_ivycn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction5" unique_id=299190771]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction5" unique_id=292573312]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction4" type="StaticBody3D" parent="." unique_id=1721839993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.94653)
+physics_material_override = ExtResource("1_ivycn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction4" unique_id=649359731]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction4" unique_id=449583164]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction3" type="StaticBody3D" parent="." unique_id=1281503329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.297686)
+physics_material_override = ExtResource("1_ivycn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction3" unique_id=658844228]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction3" unique_id=1729849627]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction2" type="StaticBody3D" parent="." unique_id=1217102882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.648843)
+physics_material_override = ExtResource("1_ivycn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction2" unique_id=2077788945]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction2" unique_id=2063411064]
+mesh = SubResource("BoxMesh_egg54")
+
 [node name="Mid Friction" type="StaticBody3D" parent="." unique_id=1283708425]
 physics_material_override = ExtResource("1_ivycn")
 
@@ -103,7 +153,7 @@ mesh = SubResource("BoxMesh_f3qia")
 
 [node name="Area3D" type="Area3D" parent="Low Friction" unique_id=415190993]
 script = ExtResource("9_rdfvj")
-accelMultiplier = 16.0
+accelMultiplier = 2.0
 velMultiplier = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction/Area3D" unique_id=700385643]

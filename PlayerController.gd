@@ -4,6 +4,8 @@ extends RigidBody3D
 @export var maxRollVelocity := 8
 @export var jumpPower := 3
 
+@export var accelMultiplier := 1.0
+@export var velMultiplier := 1.0
 
 
 func _ready() -> void:
@@ -11,6 +13,7 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
+	print(accelMultiplier)
 	
 	if Input.is_action_pressed("ui_up"):
 		direction.z -= 1
@@ -28,9 +31,9 @@ func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		
-		if linear_velocity.length() < maxRollVelocity:
+		if linear_velocity.length() < maxRollVelocity * velMultiplier:
 			var torque = Vector3(direction.z, 0, -direction.x)
-			apply_torque(torque * rollAcceleration)
+			apply_torque(torque * rollAcceleration * accelMultiplier)
 			
 			
 			
@@ -47,3 +50,13 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 		on_floor = on_floor or this_contact_on_floor
 		i += 1
+		
+		
+func set_surface_modifiers(accel, speed):
+	accelMultiplier = accel
+	velMultiplier = speed
+
+func reset_surface_modifiers():
+	pass
+	#accelMultiplier = 1.0
+	#velMultiplier = 1.0
