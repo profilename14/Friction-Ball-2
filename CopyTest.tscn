@@ -17,11 +17,11 @@
 [ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="15_mpnt8"]
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="16_phpj7"]
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_ihecw"]
-[ext_resource type="Script" path="res://Audio.gd" id="18_4mxro"]
+[ext_resource type="Script" uid="uid://cva2acupwld3k" path="res://Audio.gd" id="18_4mxro"]
 [ext_resource type="AudioStream" uid="uid://ciidtcc85rmjr" path="res://Audio/MarbleMusic.wav" id="19_nygnf"]
-[ext_resource type="Script" path="res://death_plane.gd" id="19_yxvmp"]
+[ext_resource type="Script" uid="uid://cag5uy04v0hvi" path="res://death_plane.gd" id="19_yxvmp"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="20_16oty"]
-[ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="21_b5gl6"]
+[ext_resource type="Script" path="res://cubemap.gd" id="21_b5gl6"]
 [ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="22_b5gl6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
@@ -181,13 +181,16 @@ mesh = SubResource("SphereMesh_rdfvj")
 script = ExtResource("18_4mxro")
 
 [node name="Rolling" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=1833988374]
+attenuation_model = 3
 volume_db = 20.0
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=1573927834]
-volume_db = -7.273
+attenuation_model = 3
+volume_db = -4.0
 
 [node name="Music" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=287686701]
 stream = ExtResource("19_nygnf")
+attenuation_model = 3
 autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471404577]

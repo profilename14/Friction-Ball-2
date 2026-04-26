@@ -43,6 +43,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("ui_accept") and on_floor:
 		apply_impulse(Vector3.UP * jumpPower)
+		audio.play_sfx("jump")
 
 	if direction != Vector2.ZERO:
 		isMoving = true

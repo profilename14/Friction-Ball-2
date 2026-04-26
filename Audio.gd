@@ -29,8 +29,12 @@ func play_sfx(soundName : String) -> void:
 				Rolling.stream = marbleRoll2
 				Rolling.play()
 		"hit":
-			SFX.stream = marbleImpact
+			SFX.stream = marbleImpact2
 			SFX.pitch_scale = randf_range(0.7, 1.3)
+			SFX.play()
+		"jump":
+			SFX.stream = marbleImpact3
+			SFX.pitch_scale = randf_range(1.2, 1.4)
 			SFX.play()
 		_:
 			return
