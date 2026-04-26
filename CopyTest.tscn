@@ -715,6 +715,44 @@ script = ExtResource("21_b5gl6")
 [node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("22_b5gl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.40536, 16.599998, -102.97156)
 
+[node name="High Friction13" type="StaticBody3D" parent="." unique_id=75550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.318798, 11, -80.640114)
+physics_material_override = ExtResource("10_14xas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction13" unique_id=1441496513]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction13" unique_id=1711566659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction13" unique_id=1015470325]
+script = ExtResource("6_5qtjk")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction13/Area3D" unique_id=2020674258]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="High Friction14" type="StaticBody3D" parent="." unique_id=1405881147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.718801, 10.999999, -80.74011)
+physics_material_override = ExtResource("10_14xas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction14" unique_id=1153876762]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction14" unique_id=371236676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction14" unique_id=882310501]
+script = ExtResource("6_5qtjk")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction14/Area3D" unique_id=250195855]
+shape = SubResource("BoxShape3D_iw7q2")
+
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Mid Friction2/Area3D" to="Mid Friction2/Area3D" method="_on_body_entered"]
@@ -770,3 +808,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.40536, 16.599998, -102.97
 [connection signal="body_entered" from="High Friction12/Area3D" to="High Friction12/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction12/Area3D" to="High Friction12/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="High Friction13/Area3D" to="High Friction13/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction13/Area3D" to="High Friction13/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction14/Area3D" to="High Friction14/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction14/Area3D" to="High Friction14/Area3D" method="_on_body_exited"]
