@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="15_y1g2q"]
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="16_tkyxr"]
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_0owwe"]
-[ext_resource type="ArrayMesh" uid="uid://crw5rb2hvwdaj" path="res://Models/half pipe.tres" id="18_knuds"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="19_qgn3e"]
 [ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="19_t75i1"]
 
@@ -42,17 +41,12 @@ size = Vector3(8.580048, 0.46533203, 8.499817)
 [sub_resource type="BoxShape3D" id="BoxShape3D_iw7q2"]
 size = Vector3(8.6, 1, 8.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
-albedo_texture = ExtResource("8_0iw1x")
-metallic = 1.0
-metallic_specular = 0.29
-metallic_texture = ExtResource("8_0iw1x")
-normal_enabled = true
-normal_texture = ExtResource("9_481y4")
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myinc"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_f3qia"]
-material = SubResource("StandardMaterial3D_ivycn")
-size = Vector3(8.580048, 0.46533203, 8.499817)
+[sub_resource type="SphereShape3D" id="SphereShape3D_njov2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rdfvj"]
+material = ExtResource("17_0owwe")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4i3"]
 albedo_texture = ExtResource("11_4o0qf")
@@ -68,12 +62,13 @@ heightmap_texture = ExtResource("13_5u66d")
 material = SubResource("StandardMaterial3D_bg4i3")
 size = Vector3(8.580048, 0.46533203, 8.499817)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myinc"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_njov2"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_rdfvj"]
-material = ExtResource("17_0owwe")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
+albedo_texture = ExtResource("8_0iw1x")
+metallic = 1.0
+metallic_specular = 0.29
+metallic_texture = ExtResource("8_0iw1x")
+normal_enabled = true
+normal_texture = ExtResource("9_481y4")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ld6pq"]
 _surfaces = [{
@@ -175,42 +170,6 @@ velMultiplier = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction/Mid Friction/Area3D" unique_id=274865334]
 shape = SubResource("BoxShape3D_iw7q2")
 
-[node name="Low Friction" type="StaticBody3D" parent="." unique_id=2093721561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.91925, -4.7683716e-07, 4.4741726)
-physics_material_override = ExtResource("7_xqr3d")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction" unique_id=881074367]
-shape = SubResource("BoxShape3D_myinc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction" unique_id=1816132560]
-mesh = SubResource("BoxMesh_f3qia")
-
-[node name="Area3D" type="Area3D" parent="Low Friction" unique_id=415190993]
-script = ExtResource("6_6tmhu")
-accelMultiplier = 16.0
-velMultiplier = 3.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction/Area3D" unique_id=700385643]
-shape = SubResource("BoxShape3D_iw7q2")
-
-[node name="High Friction" type="StaticBody3D" parent="." unique_id=1785668945]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7812, -4.7683716e-07, -4.5401173)
-physics_material_override = ExtResource("10_jd7p8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction" unique_id=110742347]
-shape = SubResource("BoxShape3D_myinc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction" unique_id=986977838]
-mesh = SubResource("BoxMesh_q1uvj")
-
-[node name="Area3D" type="Area3D" parent="High Friction" unique_id=436382150]
-script = ExtResource("6_6tmhu")
-accelMultiplier = 2.0
-velMultiplier = 5.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction/Area3D" unique_id=1659454357]
-shape = SubResource("BoxShape3D_iw7q2")
-
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=100566506 node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4047256, 0)
 physics_material_override = SubResource("PhysicsMaterial_myinc")
@@ -233,48 +192,6 @@ mesh = SubResource("SphereMesh_rdfvj")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471404577]
 transform = Transform3D(1, 0, 0, 0, -2.682209e-07, 1, 0, -1, -2.682209e-07, 0, 20, 0)
 light_color = Color(1, 0.82685715, 0.7303132, 1)
-
-[node name="HalfPipe(LowFriction)" type="Node3D" parent="." unique_id=42191806]
-transform = Transform3D(0.05, 0, 0, 0, 0.075, 0, 0, 0, 0.05, 23.53822, -1.0038373, -4.915819)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="HalfPipe(LowFriction)" unique_id=305196002]
-physics_material_override = ExtResource("7_xqr3d")
-
-[node name="Halfpipe" type="MeshInstance3D" parent="HalfPipe(LowFriction)/StaticBody3D" unique_id=1866098965]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67572e-06, 0)
-mesh = SubResource("ArrayMesh_q8vq6")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HalfPipe(LowFriction)/StaticBody3D" unique_id=112753795]
-shape = SubResource("ConcavePolygonShape3D_ctmup")
-
-[node name="Area3D" type="Area3D" parent="HalfPipe(LowFriction)/StaticBody3D" unique_id=167483531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.625, 0)
-script = ExtResource("6_6tmhu")
-accelMultiplier = 16.0
-velMultiplier = 2.0
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HalfPipe(LowFriction)/StaticBody3D/Area3D" unique_id=160465180]
-shape = SubResource("ConcavePolygonShape3D_ctmup")
-
-[node name="HalfPipe(MidFriction)" type="Node3D" parent="." unique_id=807349022]
-transform = Transform3D(0.05, 0, 0, 0, 0.075, 0, 0, 0, 0.05, -34.767708, -0.9338021, -19.429173)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="HalfPipe(MidFriction)" unique_id=800057444]
-physics_material_override = ExtResource("1_1kwph")
-
-[node name="Halfpipe" type="MeshInstance3D" parent="HalfPipe(MidFriction)/StaticBody3D" unique_id=1287569183]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67572e-06, 0)
-mesh = ExtResource("18_knuds")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HalfPipe(MidFriction)/StaticBody3D" unique_id=1322473998]
-shape = SubResource("ConcavePolygonShape3D_ctmup")
-
-[node name="Area3D" type="Area3D" parent="HalfPipe(MidFriction)/StaticBody3D" unique_id=480054375]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.625, 0)
-script = ExtResource("6_6tmhu")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HalfPipe(MidFriction)/StaticBody3D/Area3D" unique_id=1047527047]
-shape = SubResource("ConcavePolygonShape3D_ctmup")
 
 [node name="High Friction2" type="StaticBody3D" parent="." unique_id=1292327449]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0.13759899, 1.3584076, -12.411486)
@@ -350,6 +267,24 @@ accelMultiplier = 2.0
 velMultiplier = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction4/Area3D" unique_id=663416582]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="High Friction4" type="StaticBody3D" parent="High Friction4" unique_id=249183968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3812, 14.2, 72.25988)
+physics_material_override = ExtResource("10_jd7p8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction4/High Friction4" unique_id=1668549641]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction4/High Friction4" unique_id=271775825]
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction4/High Friction4" unique_id=928516752]
+script = ExtResource("6_6tmhu")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction4/High Friction4/Area3D" unique_id=1446029099]
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction5" type="StaticBody3D" parent="." unique_id=1499745872]
@@ -964,18 +899,64 @@ spring_length = 4.0
 [node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D" unique_id=1851023997]
 transform = Transform3D(1, 0, 0, 0, 0.9338429, 0.3576835, 0, -0.3576835, 0.9338429, -0.005, 0, 0)
 
+[node name="High Friction25" type="StaticBody3D" parent="." unique_id=1172685783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6812, 25.400002, 32.359882)
+physics_material_override = ExtResource("10_jd7p8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction25" unique_id=1631991584]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction25" unique_id=1748926276]
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction25" unique_id=426283116]
+script = ExtResource("6_6tmhu")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction25/Area3D" unique_id=1615316172]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="High Friction26" type="StaticBody3D" parent="." unique_id=770192606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4812, 25.400002, 40.859882)
+physics_material_override = ExtResource("10_jd7p8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction26" unique_id=867943653]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction26" unique_id=71490314]
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction26" unique_id=343948200]
+script = ExtResource("6_6tmhu")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction26/Area3D" unique_id=470234923]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="High Friction27" type="StaticBody3D" parent="." unique_id=48134329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.0812, 25.400002, 40.859882)
+physics_material_override = ExtResource("10_jd7p8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction27" unique_id=1265691943]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction27" unique_id=369911919]
+mesh = SubResource("BoxMesh_q1uvj")
+
+[node name="Area3D" type="Area3D" parent="High Friction27" unique_id=1682902060]
+script = ExtResource("6_6tmhu")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction27/Area3D" unique_id=652011658]
+shape = SubResource("BoxShape3D_iw7q2")
+
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_exited"]
-[connection signal="body_entered" from="Low Friction/Area3D" to="Low Friction/Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="Low Friction/Area3D" to="Low Friction/Area3D" method="_on_body_exited"]
-[connection signal="body_entered" from="High Friction/Area3D" to="High Friction/Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="High Friction/Area3D" to="High Friction/Area3D" method="_on_body_exited"]
-[connection signal="body_entered" from="HalfPipe(LowFriction)/StaticBody3D/Area3D" to="HalfPipe(LowFriction)/StaticBody3D/Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="HalfPipe(LowFriction)/StaticBody3D/Area3D" to="HalfPipe(LowFriction)/StaticBody3D/Area3D" method="_on_body_exited"]
-[connection signal="body_entered" from="HalfPipe(MidFriction)/StaticBody3D/Area3D" to="HalfPipe(MidFriction)/StaticBody3D/Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="HalfPipe(MidFriction)/StaticBody3D/Area3D" to="HalfPipe(MidFriction)/StaticBody3D/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction2/Area3D" to="High Friction2/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction2/Area3D" to="High Friction2/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction3/Area3D" to="High Friction3/Area3D" method="_on_body_entered"]
@@ -984,6 +965,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9338429, 0.3576835, 0, -0.3576835, 0.93384
 [connection signal="body_exited" from="HalfPipe(LowFriction)2/StaticBody3D/Area3D" to="HalfPipe(LowFriction)2/StaticBody3D/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction4/Area3D" to="High Friction4/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction4/Area3D" to="High Friction4/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction4/High Friction4/Area3D" to="High Friction4/High Friction4/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction4/High Friction4/Area3D" to="High Friction4/High Friction4/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction5/Area3D" to="High Friction5/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction5/Area3D" to="High Friction5/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction6/Area3D" to="High Friction6/Area3D" method="_on_body_entered"]
@@ -1046,3 +1029,9 @@ transform = Transform3D(1, 0, 0, 0, 0.9338429, 0.3576835, 0, -0.3576835, 0.93384
 [connection signal="body_exited" from="Low Friction2/Area3D" to="Low Friction2/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Low Friction3/Area3D" to="Low Friction3/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Low Friction3/Area3D" to="Low Friction3/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction25/Area3D" to="High Friction25/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction25/Area3D" to="High Friction25/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction26/Area3D" to="High Friction26/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction26/Area3D" to="High Friction26/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_exited"]
