@@ -5,19 +5,59 @@
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="1_myinc"]
 [ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="1_njov2"]
 [ext_resource type="Texture2D" uid="uid://bsm3cc3ige433" path="res://Materials/Titanium-Scuffed_normal.png" id="2_aq4fw"]
+[ext_resource type="Texture2D" uid="uid://c2iq3immwry3t" path="res://Materials/Medium/lined-grip-foam1_albedo.png" id="2_ilduj"]
+[ext_resource type="Texture2D" uid="uid://boje8e8162no5" path="res://Materials/Medium/lined-grip-foam-ao.png" id="3_s2xbw"]
 [ext_resource type="PhysicsMaterial" uid="uid://bny0477uv3rlp" path="res://Materials/High Friction Physics Material.tres" id="4_q1uvj"]
 [ext_resource type="PhysicsMaterial" uid="uid://b8feqq3a8uec" path="res://Materials/Low Friction Physics Material.tres" id="4_qs82m"]
+[ext_resource type="Texture2D" uid="uid://bh8f7y3p7faks" path="res://Materials/Medium/lined-grip-foam1_height.png" id="4_rdfvj"]
+[ext_resource type="Texture2D" uid="uid://bvjmt0n53x78l" path="res://Materials/Medium/lined-grip-foam1_normal-ogl.png" id="5_iw7q2"]
+[ext_resource type="Texture2D" uid="uid://dabhkehy8ysma" path="res://Materials/High/crisscross-foam_albedo.png" id="10_q8vq6"]
+[ext_resource type="Texture2D" uid="uid://bbnioxj7rkhsv" path="res://Materials/High/crisscross-foam_ao.png" id="11_ctmup"]
+[ext_resource type="Texture2D" uid="uid://dwu7vk8tm42ne" path="res://Materials/High/crisscross-foam_height.png" id="12_nm833"]
+[ext_resource type="Texture2D" uid="uid://d0j5nx05akwyt" path="res://Materials/High/crisscross-foam_normal-ogl.png" id="13_xyx0r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
 size = Vector3(8.580048, 0.46533203, 8.499817)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixknr"]
+albedo_texture = ExtResource("2_ilduj")
+normal_enabled = true
+normal_scale = -5.38
+normal_texture = ExtResource("5_iw7q2")
+ao_enabled = true
+ao_texture = ExtResource("3_s2xbw")
+heightmap_enabled = true
+heightmap_scale = -6.172
+heightmap_texture = ExtResource("4_rdfvj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_egg54"]
+material = SubResource("StandardMaterial3D_ixknr")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
 albedo_texture = ExtResource("1_8tn2x")
+metallic = 1.0
+metallic_specular = 0.29
+metallic_texture = ExtResource("1_8tn2x")
 normal_enabled = true
 normal_texture = ExtResource("2_aq4fw")
 
-[sub_resource type="BoxMesh" id="BoxMesh_q1uvj"]
+[sub_resource type="BoxMesh" id="BoxMesh_f3qia"]
 material = SubResource("StandardMaterial3D_ivycn")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4i3"]
+albedo_texture = ExtResource("10_q8vq6")
+normal_enabled = true
+normal_texture = ExtResource("13_xyx0r")
+ao_enabled = true
+ao_texture = ExtResource("11_ctmup")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("12_nm833")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1uvj"]
+material = SubResource("StandardMaterial3D_bg4i3")
 size = Vector3(8.580048, 0.46533203, 8.499817)
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_myinc"]
@@ -28,40 +68,55 @@ size = Vector3(8.580048, 0.46533203, 8.499817)
 
 [node name="Node3D" type="Node3D" unique_id=1380261798]
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=259931350]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.355743)
+[node name="Mid Friction6" type="StaticBody3D" parent="." unique_id=1306724460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.244213)
 physics_material_override = ExtResource("1_ivycn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=723515577]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction6" unique_id=1872515540]
 shape = SubResource("BoxShape3D_myinc")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=357179660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.684593)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction6" unique_id=442989663]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction5" type="StaticBody3D" parent="." unique_id=1235074261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.59537)
 physics_material_override = ExtResource("1_ivycn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=15823951]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction5" unique_id=299190771]
 shape = SubResource("BoxShape3D_myinc")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=1520054078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.013445)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction5" unique_id=292573312]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction4" type="StaticBody3D" parent="." unique_id=1721839993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.94653)
 physics_material_override = ExtResource("1_ivycn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=907005859]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction4" unique_id=649359731]
 shape = SubResource("BoxShape3D_myinc")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1964242367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.342297)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction4" unique_id=449583164]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction3" type="StaticBody3D" parent="." unique_id=1281503329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.297686)
 physics_material_override = ExtResource("1_ivycn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1697698897]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction3" unique_id=658844228]
 shape = SubResource("BoxShape3D_myinc")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=81734977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.671148)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction3" unique_id=1729849627]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Mid Friction2" type="StaticBody3D" parent="." unique_id=1217102882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.648843)
 physics_material_override = ExtResource("1_ivycn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1429003012]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction2" unique_id=2077788945]
 shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction2" unique_id=2063411064]
+mesh = SubResource("BoxMesh_egg54")
 
 [node name="Mid Friction" type="StaticBody3D" parent="." unique_id=1283708425]
 physics_material_override = ExtResource("1_ivycn")
@@ -70,7 +125,7 @@ physics_material_override = ExtResource("1_ivycn")
 shape = SubResource("BoxShape3D_myinc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction" unique_id=722138607]
-mesh = SubResource("BoxMesh_q1uvj")
+mesh = SubResource("BoxMesh_egg54")
 
 [node name="Low Friction" type="StaticBody3D" parent="." unique_id=2093721561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.619251, -4.7683716e-07, -3.5258274)
@@ -80,7 +135,7 @@ physics_material_override = ExtResource("4_qs82m")
 shape = SubResource("BoxShape3D_myinc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction" unique_id=1816132560]
-mesh = SubResource("BoxMesh_q1uvj")
+mesh = SubResource("BoxMesh_f3qia")
 
 [node name="High Friction" type="StaticBody3D" parent="." unique_id=1785668945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7812, -4.7683716e-07, -4.5401173)
