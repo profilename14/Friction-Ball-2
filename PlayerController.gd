@@ -7,13 +7,14 @@ extends RigidBody3D
 @export var accelMultiplier := 1.0
 @export var velMultiplier := 1.0
 
+var startPos
 
 func _ready() -> void:
-	pass 
+	startPos = transform.origin
 	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
-	print(accelMultiplier)
+	#print(accelMultiplier)
 	
 	if Input.is_action_pressed("ui_up"):
 		direction.z -= 1
@@ -60,3 +61,7 @@ func reset_surface_modifiers():
 	pass
 	#accelMultiplier = 1.0
 	#velMultiplier = 1.0
+	
+func restart():
+	transform.origin = startPos
+	linear_velocity = Vector3.ZERO
