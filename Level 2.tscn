@@ -19,6 +19,8 @@
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_0owwe"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="19_qgn3e"]
 [ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="19_t75i1"]
+[ext_resource type="Script" path="res://death_plane.gd" id="20_qgn3e"]
+[ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="21_bd26s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
 size = Vector3(8.580048, 0.46533203, 8.499817)
@@ -131,6 +133,9 @@ background_mode = 2
 sky = SubResource("Sky_t75i1")
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qgn3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aaqlr"]
+size = Vector3(600, 5, 600)
 
 [node name="Node3D" type="Node3D" unique_id=1380261798]
 
@@ -953,6 +958,18 @@ velMultiplier = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction27/Area3D" unique_id=652011658]
 shape = SubResource("BoxShape3D_iw7q2")
 
+[node name="DeathPlane" type="Area3D" parent="." unique_id=750056516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.714611, 0)
+script = ExtResource("20_qgn3e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane" unique_id=1268892868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9537835, 0)
+shape = SubResource("BoxShape3D_aaqlr")
+debug_color = Color(1, 0, 0.5176471, 1)
+
+[node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("21_bd26s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.494633, 27.999996, 36.22845)
+
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_entered"]
@@ -1035,3 +1052,4 @@ shape = SubResource("BoxShape3D_iw7q2")
 [connection signal="body_exited" from="High Friction26/Area3D" to="High Friction26/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
