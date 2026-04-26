@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://g6kww0mg6bxf"]
+
+[ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="1_myinc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvu7i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
+size = Vector3(8.580048, 0.46533203, 10.072998)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myinc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_njov2"]
+
+[node name="Node3D" type="Node3D" unique_id=1380261798]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1283708425]
+physics_material_override = SubResource("PhysicsMaterial_rvu7i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1346976136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6377411, -0.26733398, -0.29016113)
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=100566506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4047256, 0)
+physics_material_override = SubResource("PhysicsMaterial_myinc")
+script = ExtResource("1_myinc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1528176696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050828457, 0, 0)
+shape = SubResource("SphereShape3D_njov2")
+
+[node name="Marker3D" type="Marker3D" parent="RigidBody3D/CollisionShape3D" unique_id=1509055738]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=275191699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9085915, 3.7406874)
