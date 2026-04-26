@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://g6kww0mg6bxf"]
 
+[ext_resource type="Texture2D" uid="uid://dblf0476w7om2" path="res://Materials/Titanium-Scuffed_basecolor.png" id="1_8tn2x"]
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="1_myinc"]
 [ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="1_njov2"]
+[ext_resource type="Texture2D" uid="uid://bsm3cc3ige433" path="res://Materials/Titanium-Scuffed_normal.png" id="2_aq4fw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvu7i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
+albedo_texture = ExtResource("1_8tn2x")
+normal_enabled = true
+normal_texture = ExtResource("2_aq4fw")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1uvj"]
+material = SubResource("StandardMaterial3D_ivycn")
 size = Vector3(8.580048, 0.46533203, 8.499817)
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_myinc"]
@@ -56,6 +67,9 @@ physics_material_override = SubResource("PhysicsMaterial_rvu7i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1346976136]
 shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=722138607]
+mesh = SubResource("BoxMesh_q1uvj")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=1504010143 node_paths=PackedStringArray("target")]
 script = ExtResource("1_njov2")

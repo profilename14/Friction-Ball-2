@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://skwolgu0akie"]
+
+[ext_resource type="Texture2D" uid="uid://dblf0476w7om2" path="res://Materials/Titanium-Scuffed_basecolor.png" id="1_rwedw"]
+[ext_resource type="Texture2D" uid="uid://bsm3cc3ige433" path="res://Materials/Titanium-Scuffed_normal.png" id="2_bdl3k"]
+
+[resource]
+albedo_texture = ExtResource("1_rwedw")
+normal_enabled = true
+normal_texture = ExtResource("2_bdl3k")
