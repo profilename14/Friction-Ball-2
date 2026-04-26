@@ -11,7 +11,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://b8feqq3a8uec" path="res://Materials/Low Friction Physics Material.tres" id="4_qs82m"]
 [ext_resource type="Texture2D" uid="uid://bh8f7y3p7faks" path="res://Materials/Medium/lined-grip-foam1_height.png" id="4_rdfvj"]
 [ext_resource type="Texture2D" uid="uid://bvjmt0n53x78l" path="res://Materials/Medium/lined-grip-foam1_normal-ogl.png" id="5_iw7q2"]
-[ext_resource type="Script" uid="uid://t8kt2jte1qqn" path="res://area_3d.gd" id="9_rdfvj"]
+[ext_resource type="Script" path="res://area_3d.gd" id="9_rdfvj"]
 [ext_resource type="Texture2D" uid="uid://dabhkehy8ysma" path="res://Materials/High/crisscross-foam_albedo.png" id="10_q8vq6"]
 [ext_resource type="Texture2D" uid="uid://bbnioxj7rkhsv" path="res://Materials/High/crisscross-foam_ao.png" id="11_ctmup"]
 [ext_resource type="Texture2D" uid="uid://dwu7vk8tm42ne" path="res://Materials/High/crisscross-foam_height.png" id="12_nm833"]
@@ -121,7 +121,7 @@ mesh = SubResource("BoxMesh_q1uvj")
 
 [node name="Area3D" type="Area3D" parent="High Friction" unique_id=436382150]
 script = ExtResource("9_rdfvj")
-accelMultiplier = 3.0
+accelMultiplier = 2.0
 velMultiplier = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction/Area3D" unique_id=1659454357]
@@ -156,6 +156,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050828457, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=690431980]
 mesh = SubResource("SphereMesh_rdfvj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471404577]
+transform = Transform3D(1, 0, 0, 0, -2.682209e-07, 1, 0, -1, -2.682209e-07, 0, 20, 0)
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
