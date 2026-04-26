@@ -7,33 +7,37 @@ extends RigidBody3D
 @export var accelMultiplier := 1.0
 @export var velMultiplier := 1.0
 
+@export var camera: Node3D
+
 var startPos
 
 func _ready() -> void:
 	startPos = transform.origin
 	
 func _physics_process(delta):
-	var direction = Vector3.ZERO
+	var direction = Vector2.ZERO
 	#print(accelMultiplier)
 	
 	if Input.is_action_pressed("ui_up"):
-		direction.z -= 1
+		direction.y -= 1
 	if Input.is_action_pressed("ui_down"):
-		direction.z += 1
+		direction.y += 1
 	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
+	if Input.is_action_pressed("ui_right"):
+		direction.x -= 1
 		
 		
 	if Input.is_action_pressed("ui_accept") and on_floor:
 		apply_impulse(Vector3.UP * jumpPower)
 
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+	if direction != Vector2.ZERO:
+		direction = direction.y * camera.get_camera_forward() +  direction.x * camera.get_camera_right()
+		if direction.length() > 1:
+			direction = direction.normalized()
 		
 		if linear_velocity.length() < maxRollVelocity * velMultiplier:
-			var torque = Vector3(direction.z, 0, -direction.x)
+			var torque = direction.cross(Vector3.UP)
 			apply_torque(torque * rollAcceleration * accelMultiplier)
 			
 			
