@@ -1,8 +1,8 @@
 extends RigidBody3D
 
-@export var rollAcceleration := 10
-@export var maxRollVelocity := 10
-@export var jumpPower := 5
+@export var rollAcceleration := 5
+@export var maxRollVelocity := 8
+@export var jumpPower := 3
 
 
 
