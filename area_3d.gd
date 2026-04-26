@@ -4,7 +4,7 @@ extends Area3D
 @export var velMultiplier := 1.0
 
 func _on_body_entered(body):
-	print("Baba")
+	#print("Baba")
 	if body.has_method("set_surface_modifiers"):
 		body.set_surface_modifiers(accelMultiplier, velMultiplier)
 
