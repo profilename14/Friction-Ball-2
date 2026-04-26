@@ -18,7 +18,9 @@
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="16_phpj7"]
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_ihecw"]
 [ext_resource type="ArrayMesh" uid="uid://crw5rb2hvwdaj" path="res://Models/half pipe.tres" id="18_a2nvq"]
-[ext_resource type="Script" uid="uid://cag5uy04v0hvi" path="res://death_plane.gd" id="19_yxvmp"]
+[ext_resource type="Script" path="res://death_plane.gd" id="19_yxvmp"]
+[ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="20_16oty"]
+[ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="21_b5gl6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
 size = Vector3(8.580048, 0.46533203, 8.499817)
@@ -114,7 +116,14 @@ data = PackedVector3Array(228.59999, 0, 203.2, 228.59999, 51.029697, 203.2, 228.
 [sub_resource type="BoxShape3D" id="BoxShape3D_lao1t"]
 size = Vector3(600, 5, 600)
 
-[node name="Node3D" type="Node3D" unique_id=1380261798]
+[sub_resource type="Sky" id="Sky_t75i1"]
+sky_material = ExtResource("20_16oty")
+
+[sub_resource type="Environment" id="Environment_5qtjk"]
+background_mode = 2
+sky = SubResource("Sky_t75i1")
+
+[node name="Node3D2" type="Node3D" unique_id=1380261798]
 
 [node name="Mid Friction" type="StaticBody3D" parent="." unique_id=1283708425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
@@ -795,6 +804,10 @@ script = ExtResource("19_yxvmp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9537835, 0)
 shape = SubResource("BoxShape3D_lao1t")
 debug_color = Color(1, 0, 0.5176471, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1768136544]
+environment = SubResource("Environment_5qtjk")
+script = ExtResource("21_b5gl6")
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
