@@ -72,10 +72,13 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		on_floor = on_floor or this_contact_on_floor
 		i += 1
 	
+	
+	if audio == null:
+		return
+		
 	if (on_floor and isMoving):
 		audio.play_sfx("roll")
 	else:
-
 		audio.stop_sfx("roll")
 		
 func set_surface_modifiers(accel, speed):
