@@ -15,6 +15,9 @@ func _ready() -> void:
 	startPos = transform.origin
 	
 func _physics_process(delta):
+	if camera == null:
+		return
+		
 	var direction = Vector2.ZERO
 	#print(accelMultiplier)
 	

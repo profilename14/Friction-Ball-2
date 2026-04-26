@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cihps0e5mvono"]
+
+[ext_resource type="Script" uid="uid://crxn4dn3nowpd" path="res://level_end.gd" id="1_v06a4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16oty"]
+size = Vector3(15, 1, 15)
+
+[node name="LevelEnd" type="Area3D" unique_id=176490457]
+script = ExtResource("1_v06a4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1219325422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9716339, -1.953783, 0.03553772)
+shape = SubResource("BoxShape3D_16oty")
+debug_color = Color(1, 0, 0.5176471, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

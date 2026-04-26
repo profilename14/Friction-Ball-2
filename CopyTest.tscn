@@ -18,9 +18,10 @@
 [ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="16_phpj7"]
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_ihecw"]
 [ext_resource type="ArrayMesh" uid="uid://crw5rb2hvwdaj" path="res://Models/half pipe.tres" id="18_a2nvq"]
-[ext_resource type="Script" path="res://death_plane.gd" id="19_yxvmp"]
+[ext_resource type="Script" uid="uid://cag5uy04v0hvi" path="res://death_plane.gd" id="19_yxvmp"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="20_16oty"]
-[ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="21_b5gl6"]
+[ext_resource type="Script" path="res://cubemap.gd" id="21_b5gl6"]
+[ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="22_b5gl6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
 size = Vector3(8.580048, 0.46533203, 8.499817)
@@ -808,6 +809,9 @@ debug_color = Color(1, 0, 0.5176471, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1768136544]
 environment = SubResource("Environment_5qtjk")
 script = ExtResource("21_b5gl6")
+
+[node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("22_b5gl6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4946327, -3.8146973e-06, -24.67155)
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
