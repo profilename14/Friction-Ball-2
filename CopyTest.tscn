@@ -19,9 +19,9 @@
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="17_ihecw"]
 [ext_resource type="Script" uid="uid://cva2acupwld3k" path="res://Audio.gd" id="18_4mxro"]
 [ext_resource type="AudioStream" uid="uid://ciidtcc85rmjr" path="res://Audio/MarbleMusic.wav" id="19_nygnf"]
-[ext_resource type="Script" uid="uid://cag5uy04v0hvi" path="res://death_plane.gd" id="19_yxvmp"]
+[ext_resource type="Script" path="res://death_plane.gd" id="19_yxvmp"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="20_16oty"]
-[ext_resource type="Script" path="res://cubemap.gd" id="21_b5gl6"]
+[ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="21_b5gl6"]
 [ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="22_b5gl6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
@@ -466,7 +466,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="Low Friction2" type="StaticBody3D" parent="." unique_id=1707496726]
-transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 82.219246, 11, -105.525826)
+transform = Transform3D(6.973363, -0.08715574, 0, 0.61009014, 0.9961947, 0, 0, 0, 1, 81.983925, 13.689726, -105.525826)
 physics_material_override = ExtResource("7_4mxro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction2" unique_id=121023009]
@@ -484,7 +484,7 @@ velMultiplier = 100.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction7" type="StaticBody3D" parent="." unique_id=23649483]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.3188, 13.7, -107.94012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.2188, 13.7, -107.94012)
 physics_material_override = ExtResource("10_14xas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction7" unique_id=1376390837]
@@ -541,7 +541,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="Low Friction9" type="StaticBody3D" parent="." unique_id=305551068]
-transform = Transform3D(1.1746157, -0.3420201, 0, 0.42752513, 0.9396926, 0, 0, 0, 1, 117.08273, 12.831906, -105.525826)
+transform = Transform3D(1.1746157, -0.3420201, 0, 0.42752513, 0.9396926, 0, 0, 0, 1, 116.395584, 18.009111, -105.525826)
 physics_material_override = ExtResource("7_4mxro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction9" unique_id=1452863226]
@@ -643,7 +643,7 @@ velMultiplier = 3.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction10" type="StaticBody3D" parent="." unique_id=1181648544]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.3188, 13.7, -99.44012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.3188, 13.7, -99.44012)
 physics_material_override = ExtResource("10_14xas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction10" unique_id=585181955]
@@ -662,7 +662,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction11" type="StaticBody3D" parent="." unique_id=158712803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.91881, 13.7, -99.44012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.71881, 13.7, -99.44012)
 physics_material_override = ExtResource("10_14xas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction11" unique_id=1465322812]
@@ -681,7 +681,7 @@ velMultiplier = 5.0
 shape = SubResource("BoxShape3D_iw7q2")
 
 [node name="High Friction12" type="StaticBody3D" parent="." unique_id=1183255677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.8188, 13.7, -107.84011)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.8188, 13.7, -107.84011)
 physics_material_override = ExtResource("10_14xas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction12" unique_id=1496945293]
@@ -713,7 +713,7 @@ environment = SubResource("Environment_5qtjk")
 script = ExtResource("21_b5gl6")
 
 [node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("22_b5gl6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.40536, 16.099998, -102.97156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.40536, 16.599998, -102.97156)
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
