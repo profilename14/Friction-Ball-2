@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bh8f7y3p7faks" path="res://Materials/Medium/lined-grip-foam1_height.png" id="4_bd26s"]
 [ext_resource type="Texture2D" uid="uid://bvjmt0n53x78l" path="res://Materials/Medium/lined-grip-foam1_normal-ogl.png" id="5_aaqlr"]
 [ext_resource type="Script" uid="uid://t8kt2jte1qqn" path="res://area_3d.gd" id="6_6tmhu"]
+[ext_resource type="Script" uid="uid://vrph0xwnss40" path="res://level_end_2.gd" id="6_aaqlr"]
 [ext_resource type="PhysicsMaterial" uid="uid://b8feqq3a8uec" path="res://Materials/Low Friction Physics Material.tres" id="7_xqr3d"]
 [ext_resource type="Texture2D" uid="uid://dblf0476w7om2" path="res://Materials/Titanium-Scuffed_basecolor.png" id="8_0iw1x"]
 [ext_resource type="Script" uid="uid://cva2acupwld3k" path="res://Audio.gd" id="9_6tmhu"]
@@ -22,7 +23,6 @@
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="19_qgn3e"]
 [ext_resource type="Script" path="res://cubemap.gd" id="19_t75i1"]
 [ext_resource type="Script" uid="uid://cag5uy04v0hvi" path="res://death_plane.gd" id="20_qgn3e"]
-[ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="21_bd26s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
 size = Vector3(8.580048, 0.46533203, 8.499817)
@@ -138,6 +138,9 @@ sky = SubResource("Sky_t75i1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aaqlr"]
 size = Vector3(600, 5, 600)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16oty"]
+size = Vector3(15, 1, 15)
 
 [node name="Node3D" type="Node3D" unique_id=1380261798]
 
@@ -986,8 +989,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9537835, 0)
 shape = SubResource("BoxShape3D_aaqlr")
 debug_color = Color(1, 0, 0.5176471, 1)
 
-[node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("21_bd26s")]
+[node name="LevelEnd" type="Area3D" parent="." unique_id=176490457]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.494633, 27.999996, 36.22845)
+script = ExtResource("6_aaqlr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelEnd" unique_id=1219325422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9716339, -1.953783, 0.03553772)
+shape = SubResource("BoxShape3D_16oty")
+debug_color = Color(1, 0, 0.5176471, 1)
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
@@ -1072,3 +1081,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.494633, 27.999996, 36.228
 [connection signal="body_entered" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="High Friction27/Area3D" to="High Friction27/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelEnd" to="LevelEnd" method="_on_body_entered"]
