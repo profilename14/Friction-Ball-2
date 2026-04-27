@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://batcclfxbyrxx"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b73j6i0nso4iv" path="res://Materials/Medium Friction Physics Material.tres" id="1_pkhwu"]
+[ext_resource type="Texture2D" uid="uid://c2iq3immwry3t" path="res://Materials/Medium/lined-grip-foam1_albedo.png" id="2_y7leo"]
+[ext_resource type="Texture2D" uid="uid://boje8e8162no5" path="res://Materials/Medium/lined-grip-foam-ao.png" id="3_su2v6"]
+[ext_resource type="Texture2D" uid="uid://bh8f7y3p7faks" path="res://Materials/Medium/lined-grip-foam1_height.png" id="4_uykuy"]
+[ext_resource type="Texture2D" uid="uid://bvjmt0n53x78l" path="res://Materials/Medium/lined-grip-foam1_normal-ogl.png" id="5_rn3hx"]
+[ext_resource type="Script" uid="uid://t8kt2jte1qqn" path="res://area_3d.gd" id="6_d8cmd"]
+[ext_resource type="Script" uid="uid://cxlws67bacud8" path="res://PlayerController.gd" id="7_bgii5"]
+[ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="8_pee34"]
+[ext_resource type="Script" uid="uid://cva2acupwld3k" path="res://Audio.gd" id="9_pupek"]
+[ext_resource type="AudioStream" uid="uid://ciidtcc85rmjr" path="res://Audio/MarbleMusic.wav" id="10_1h65m"]
+[ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="19_6rmup"]
+[ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="20_aoa7u"]
+[ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="21_jdo8o"]
+[ext_resource type="Script" path="res://death_plane.gd" id="22_fa32d"]
+[ext_resource type="PackedScene" uid="uid://cihps0e5mvono" path="res://level_end.tscn" id="23_ibjs2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myinc"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixknr"]
+albedo_texture = ExtResource("2_y7leo")
+normal_enabled = true
+normal_scale = -5.38
+normal_texture = ExtResource("5_rn3hx")
+ao_enabled = true
+ao_texture = ExtResource("3_su2v6")
+heightmap_enabled = true
+heightmap_scale = -6.172
+heightmap_texture = ExtResource("4_uykuy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_egg54"]
+material = SubResource("StandardMaterial3D_ixknr")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw7q2"]
+size = Vector3(8.6, 1, 8.6)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myinc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_njov2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rdfvj"]
+material = ExtResource("8_pee34")
+
+[sub_resource type="Sky" id="Sky_t75i1"]
+sky_material = ExtResource("19_6rmup")
+
+[sub_resource type="Environment" id="Environment_qgn3e"]
+background_mode = 2
+sky = SubResource("Sky_t75i1")
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qgn3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aaqlr"]
+size = Vector3(600, 5, 600)
+
+[node name="Node3D" type="Node3D" unique_id=1380261798]
+
+[node name="Mid Friction" type="StaticBody3D" parent="." unique_id=1283708425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+physics_material_override = ExtResource("1_pkhwu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction" unique_id=1346976136]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction" unique_id=722138607]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Area3D" type="Area3D" parent="Mid Friction" unique_id=272865788]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 1.5
+velMultiplier = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction/Area3D" unique_id=834129074]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="Mid Friction" type="StaticBody3D" parent="Mid Friction" unique_id=531873694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 0, 0)
+physics_material_override = ExtResource("1_pkhwu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction/Mid Friction" unique_id=1050761214]
+shape = SubResource("BoxShape3D_myinc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mid Friction/Mid Friction" unique_id=173064853]
+mesh = SubResource("BoxMesh_egg54")
+
+[node name="Area3D" type="Area3D" parent="Mid Friction/Mid Friction" unique_id=1986187956]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 1.5
+velMultiplier = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mid Friction/Mid Friction/Area3D" unique_id=274865334]
+shape = SubResource("BoxShape3D_iw7q2")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=100566506 node_paths=PackedStringArray("camera", "audio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4047256, 0)
+physics_material_override = SubResource("PhysicsMaterial_myinc")
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("7_bgii5")
+jumpPower = 2
+camera = NodePath("../CameraRig")
+audio = NodePath("AudioManager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1528176696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050828457, 0, 0)
+shape = SubResource("SphereShape3D_njov2")
+
+[node name="Marker3D" type="Marker3D" parent="RigidBody3D" unique_id=1509055738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050828457, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=690431980]
+mesh = SubResource("SphereMesh_rdfvj")
+
+[node name="AudioManager" type="Node" parent="RigidBody3D" unique_id=1776964315]
+script = ExtResource("9_pupek")
+
+[node name="Rolling" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=1867635904]
+attenuation_model = 3
+volume_db = 20.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=853520174]
+attenuation_model = 3
+volume_db = -4.0
+
+[node name="Music" type="AudioStreamPlayer3D" parent="RigidBody3D/AudioManager" unique_id=849149472]
+stream = ExtResource("10_1h65m")
+attenuation_model = 3
+autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471404577]
+transform = Transform3D(1, 0, 0, 0, -2.682209e-07, 1, 0, -1, -2.682209e-07, 0, 20, 0)
+light_color = Color(1, 0.82685715, 0.7303132, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2062188976]
+environment = SubResource("Environment_qgn3e")
+script = ExtResource("20_aoa7u")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=2021342956 node_paths=PackedStringArray("target")]
+script = ExtResource("21_jdo8o")
+target = NodePath("../RigidBody3D")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraRig" unique_id=1207284225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 2.117, 0)
+shape = SubResource("SeparationRayShape3D_qgn3e")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D" unique_id=1851023997]
+transform = Transform3D(1, 0, 0, 0, 0.9338429, 0.3576835, 0, -0.3576835, 0.9338429, -0.005, 0, 0)
+
+[node name="DeathPlane" type="Area3D" parent="." unique_id=750056516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.714611, 0)
+script = ExtResource("22_fa32d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane" unique_id=1268892868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9537835, 0)
+shape = SubResource("BoxShape3D_aaqlr")
+debug_color = Color(1, 0, 0.5176471, 1)
+
+[node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("23_ibjs2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.494633, 27.999996, 36.22845)
+
+[connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
