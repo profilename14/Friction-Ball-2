@@ -10,6 +10,14 @@
 [ext_resource type="Material" uid="uid://skwolgu0akie" path="res://Materials/new_standard_material_3d.tres" id="8_pee34"]
 [ext_resource type="Script" uid="uid://cva2acupwld3k" path="res://Audio.gd" id="9_pupek"]
 [ext_resource type="AudioStream" uid="uid://ciidtcc85rmjr" path="res://Audio/MarbleMusic.wav" id="10_1h65m"]
+[ext_resource type="PhysicsMaterial" uid="uid://bny0477uv3rlp" path="res://Materials/High Friction Physics Material.tres" id="11_tnlat"]
+[ext_resource type="Texture2D" uid="uid://dabhkehy8ysma" path="res://Materials/High/crisscross-foam_albedo.png" id="12_mht4f"]
+[ext_resource type="Texture2D" uid="uid://bbnioxj7rkhsv" path="res://Materials/High/crisscross-foam_ao.png" id="13_cg26t"]
+[ext_resource type="Texture2D" uid="uid://dwu7vk8tm42ne" path="res://Materials/High/crisscross-foam_height.png" id="14_tcaqp"]
+[ext_resource type="Texture2D" uid="uid://d0j5nx05akwyt" path="res://Materials/High/crisscross-foam_normal-ogl.png" id="15_oi24y"]
+[ext_resource type="PhysicsMaterial" uid="uid://b8feqq3a8uec" path="res://Materials/Low Friction Physics Material.tres" id="16_d00bf"]
+[ext_resource type="Texture2D" uid="uid://dblf0476w7om2" path="res://Materials/Titanium-Scuffed_basecolor.png" id="17_dcy58"]
+[ext_resource type="Texture2D" uid="uid://bsm3cc3ige433" path="res://Materials/Titanium-Scuffed_normal.png" id="18_l782f"]
 [ext_resource type="Material" uid="uid://c5s3oj4epyrqf" path="res://Skybox/new_panorama_sky_material.tres" id="19_6rmup"]
 [ext_resource type="Script" uid="uid://whdl5h3gvfy7" path="res://cubemap.gd" id="20_aoa7u"]
 [ext_resource type="Script" uid="uid://c02feb0x01ps7" path="res://camera_rig.gd" id="21_jdo8o"]
@@ -55,6 +63,64 @@ sky = SubResource("Sky_t75i1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aaqlr"]
 size = Vector3(600, 5, 600)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjsoq"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivycn"]
+albedo_texture = ExtResource("17_dcy58")
+metallic = 1.0
+metallic_specular = 0.29
+metallic_texture = ExtResource("17_dcy58")
+normal_enabled = true
+normal_texture = ExtResource("18_l782f")
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8m8l"]
+material = SubResource("StandardMaterial3D_ivycn")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wo86c"]
+size = Vector3(8.6, 1, 8.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkhwu"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7leo"]
+albedo_texture = ExtResource("12_mht4f")
+normal_enabled = true
+normal_texture = ExtResource("15_oi24y")
+ao_enabled = true
+ao_texture = ExtResource("13_cg26t")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_tcaqp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_su2v6"]
+material = SubResource("StandardMaterial3D_y7leo")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uykuy"]
+size = Vector3(8.6, 1, 8.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7leo"]
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su2v6"]
+albedo_texture = ExtResource("12_mht4f")
+normal_enabled = true
+normal_texture = ExtResource("15_oi24y")
+ao_enabled = true
+ao_texture = ExtResource("13_cg26t")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_tcaqp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_uykuy"]
+material = SubResource("StandardMaterial3D_su2v6")
+size = Vector3(8.580048, 0.46533203, 8.499817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rn3hx"]
+size = Vector3(8.6, 1, 8.6)
 
 [node name="Node3D" type="Node3D" unique_id=1380261798]
 
@@ -151,7 +217,7 @@ spring_length = 4.0
 transform = Transform3D(1, 0, 0, 0, 0.9338429, 0.3576835, 0, -0.3576835, 0.9338429, -0.005, 0, 0)
 
 [node name="DeathPlane" type="Area3D" parent="." unique_id=750056516]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.714611, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -5.714611, 0)
 script = ExtResource("22_fa32d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane" unique_id=1268892868]
@@ -160,10 +226,320 @@ shape = SubResource("BoxShape3D_aaqlr")
 debug_color = Color(1, 0, 0.5176471, 1)
 
 [node name="LevelEnd" parent="." unique_id=176490457 instance=ExtResource("23_ibjs2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.494633, 27.999996, 36.22845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.805367, 29.399998, -354.1715)
+
+[node name="Low Friction2" type="StaticBody3D" parent="." unique_id=1669578958]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 9.511904, 5.1461654, -37.81717)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction2" unique_id=916399056]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction2" unique_id=1669963639]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Low Friction2" unique_id=329081701]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction2/Area3D" unique_id=350803388]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction3" type="StaticBody3D" parent="." unique_id=375895694]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 1.0141039, 5.1210184, -38.008907)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction3" unique_id=830673758]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction3" unique_id=1396864415]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Low Friction3" unique_id=1919276392]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction3/Area3D" unique_id=33567763]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction5" type="StaticBody3D" parent="." unique_id=1506344676]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 2.2049391, 15.512408, -96.582466)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction5" unique_id=1918546183]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction5" unique_id=171621299]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Low Friction5" unique_id=1395111694]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction5/Area3D" unique_id=1749528819]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction6" type="StaticBody3D" parent="." unique_id=2127385256]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 10.702739, 15.537556, -96.390724)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction6" unique_id=1273157404]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Low Friction6" unique_id=164274399]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Low Friction6" unique_id=931630713]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Low Friction6/Area3D" unique_id=971810363]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="High Friction2" type="StaticBody3D" parent="." unique_id=484002049]
+transform = Transform3D(-3.4836043e-07, 3.8096983e-09, -1, 0.6972459, 0.9961947, 0, 7.969558, -0.08715574, -4.371139e-08, 3.8188007, 17.512558, -159.9525)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction2" unique_id=1533873627]
+shape = SubResource("BoxShape3D_pkhwu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction2" unique_id=937985941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_su2v6")
+
+[node name="Area3D" type="Area3D" parent="High Friction2" unique_id=449173110]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction2/Area3D" unique_id=546172781]
+shape = SubResource("BoxShape3D_uykuy")
+
+[node name="High Friction3" type="StaticBody3D" parent="." unique_id=2013136184]
+transform = Transform3D(-3.4836043e-07, 3.8096983e-09, -1, 0.6972459, 0.9961947, 0, 7.969558, -0.08715574, -4.371139e-08, 12.318801, 17.512558, -159.9525)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction3" unique_id=808133396]
+shape = SubResource("BoxShape3D_pkhwu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction3" unique_id=1044493947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_su2v6")
+
+[node name="Area3D" type="Area3D" parent="High Friction3" unique_id=1296580530]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction3/Area3D" unique_id=1845535384]
+shape = SubResource("BoxShape3D_uykuy")
+
+[node name="High Friction4" type="StaticBody3D" parent="." unique_id=1266785952]
+transform = Transform3D(-3.4836043e-07, 3.8096983e-09, -1, 0.6972459, 0.9961947, 0, 7.969558, -0.08715574, -4.371139e-08, 3.8188007, 17.512558, -159.9525)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction4" unique_id=439252711]
+shape = SubResource("BoxShape3D_pkhwu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction4" unique_id=492916026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_su2v6")
+
+[node name="Area3D" type="Area3D" parent="High Friction4" unique_id=740680200]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction4/Area3D" unique_id=955673680]
+shape = SubResource("BoxShape3D_uykuy")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=343037309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3999999, 14.6, -185.29999)
+
+[node name="Low Friction4" type="StaticBody3D" parent="Node3D" unique_id=1159811757]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 9.511904, 5.1461654, -37.81717)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction4" unique_id=1416764022]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Low Friction4" unique_id=42315034]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Low Friction4" unique_id=553033550]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction4/Area3D" unique_id=1592617402]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction7" type="StaticBody3D" parent="Node3D" unique_id=1453547929]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 1.0141039, 5.1210184, -38.008907)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction7" unique_id=1944970579]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Low Friction7" unique_id=1829324677]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Low Friction7" unique_id=117599829]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction7/Area3D" unique_id=1136414265]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction8" type="StaticBody3D" parent="Node3D" unique_id=1900616954]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 2.2049391, 15.512408, -96.582466)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction8" unique_id=975097463]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Low Friction8" unique_id=906509733]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Low Friction8" unique_id=1955038128]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction8/Area3D" unique_id=1456841405]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="Low Friction9" type="StaticBody3D" parent="Node3D" unique_id=367484963]
+transform = Transform3D(0.15186, -0.0068519264, 0.9997412, 1.2225513, 0.98462635, 0.002958472, -6.8907413, 0.1745408, 0.022557467, 10.702739, 15.537556, -96.390724)
+physics_material_override = ExtResource("16_d00bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction9" unique_id=770648453]
+shape = SubResource("BoxShape3D_wjsoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Low Friction9" unique_id=1549017291]
+mesh = SubResource("BoxMesh_y8m8l")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Low Friction9" unique_id=59911461]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 100.0
+velMultiplier = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Low Friction9/Area3D" unique_id=85593248]
+shape = SubResource("BoxShape3D_wo86c")
+
+[node name="High Friction5" type="StaticBody3D" parent="." unique_id=530022222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2187996, 28.099998, -359.24014)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction5" unique_id=622573928]
+shape = SubResource("BoxShape3D_y7leo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction5" unique_id=388093613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_uykuy")
+
+[node name="Area3D" type="Area3D" parent="High Friction5" unique_id=802242067]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction5/Area3D" unique_id=312812253]
+shape = SubResource("BoxShape3D_rn3hx")
+
+[node name="High Friction6" type="StaticBody3D" parent="." unique_id=643781973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8188, 28.099998, -359.24014)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction6" unique_id=1336612716]
+shape = SubResource("BoxShape3D_y7leo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction6" unique_id=1327650958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_uykuy")
+
+[node name="Area3D" type="Area3D" parent="High Friction6" unique_id=880641508]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction6/Area3D" unique_id=781541849]
+shape = SubResource("BoxShape3D_rn3hx")
+
+[node name="High Friction7" type="StaticBody3D" parent="." unique_id=1027263652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2187996, 28.099998, -350.74014)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction7" unique_id=1738994546]
+shape = SubResource("BoxShape3D_y7leo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction7" unique_id=1725067792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_uykuy")
+
+[node name="Area3D" type="Area3D" parent="High Friction7" unique_id=1173840923]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction7/Area3D" unique_id=950316893]
+shape = SubResource("BoxShape3D_rn3hx")
+
+[node name="High Friction8" type="StaticBody3D" parent="." unique_id=137314649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8188, 28.099998, -350.84015)
+physics_material_override = ExtResource("11_tnlat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction8" unique_id=884374093]
+shape = SubResource("BoxShape3D_y7leo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="High Friction8" unique_id=47971448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_uykuy")
+
+[node name="Area3D" type="Area3D" parent="High Friction8" unique_id=877618668]
+script = ExtResource("6_d8cmd")
+accelMultiplier = 2.0
+velMultiplier = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="High Friction8/Area3D" unique_id=442937201]
+shape = SubResource("BoxShape3D_rn3hx")
 
 [connection signal="body_entered" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Area3D" to="Mid Friction/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Mid Friction/Mid Friction/Area3D" to="Mid Friction/Mid Friction/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="Low Friction2/Area3D" to="Low Friction2/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Low Friction2/Area3D" to="Low Friction2/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Low Friction3/Area3D" to="Low Friction3/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Low Friction3/Area3D" to="Low Friction3/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Low Friction5/Area3D" to="Low Friction5/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Low Friction5/Area3D" to="Low Friction5/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Low Friction6/Area3D" to="Low Friction6/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Low Friction6/Area3D" to="Low Friction6/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction2/Area3D" to="High Friction2/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction2/Area3D" to="High Friction2/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction3/Area3D" to="High Friction3/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction3/Area3D" to="High Friction3/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction4/Area3D" to="High Friction4/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction4/Area3D" to="High Friction4/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Low Friction4/Area3D" to="Node3D/Low Friction4/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Low Friction4/Area3D" to="Node3D/Low Friction4/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Low Friction7/Area3D" to="Node3D/Low Friction7/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Low Friction7/Area3D" to="Node3D/Low Friction7/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Low Friction8/Area3D" to="Node3D/Low Friction8/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Low Friction8/Area3D" to="Node3D/Low Friction8/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Low Friction9/Area3D" to="Node3D/Low Friction9/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Low Friction9/Area3D" to="Node3D/Low Friction9/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction5/Area3D" to="High Friction5/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction5/Area3D" to="High Friction5/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction6/Area3D" to="High Friction6/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction6/Area3D" to="High Friction6/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction7/Area3D" to="High Friction7/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction7/Area3D" to="High Friction7/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="High Friction8/Area3D" to="High Friction8/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="High Friction8/Area3D" to="High Friction8/Area3D" method="_on_body_exited"]
